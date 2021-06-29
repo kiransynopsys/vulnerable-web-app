@@ -15,13 +15,13 @@ jobs:
      
     - name: IO Scan
       id: prescription
-      uses: synopsys-sig/intelligent-security-scan@master
+      uses: synopsys-sig/intelligent-security-scan@2021.6.0
       with:
         stage: "IO"
         ioServerUrl: ${{secrets.IO_SERVER_URL}}
         ioServerToken: ${{secrets.IO_SERVER_TOKEN}}       
         workflowServerUrl: ${{secrets.WORKFLOW_SERVER_URL}}
-        additionalWorkflowArgs: "--polaris.url=${{secrets.POLARIS_SERVER_URL}} --github.token=${{secrets.GH_ATOKEN}} --polaris.project.name=sig-suhaslr/vulnerable-web-app --polaris.token=${{secrets.POLARIS_ACCESS_TOKEN}} --jira.auth.token=${{secrets.JIRA_TOKEN}} --sensitive.package.pattern='.*(.xml)' --jira.project.name=IO-dev --jira.api.url=https://dev-io.atlassian.net/rest/api/latest --jira.username=suhaslr@synopsys.com --jira.issues.query=project=IOD --blackduck.project.name=vulnerable-web-app --blackduck.url=https://io-blackduck.dev.polaris.synopsys.com --blackduck.api.token=${{secrets.BLACKDUCK_TOKEN}}"
+        additionalWorkflowArgs: "--polaris.url=${{secrets.POLARIS_SERVER_URL}} --github.token=${{secrets.GH_ATOKEN}} --polaris.project.name=sig-suhaslr/vulnerable-web-app --polaris.token=${{secrets.POLARIS_ACCESS_TOKEN}} --jira.auth.token=${{secrets.JIRA_TOKEN}} --sensitive.package.pattern='.*(.xml)' --jira.project.name=IO-dev --jira.api.url=https://io-jira.dev.polaris.synopsys.com/rest/api/latest --jira.username=suhaslr@synopsys.com --jira.issues.query=project=IOD --blackduck.project.name=vulnerable-web-app --blackduck.url=https://io-blackduck.dev.polaris.synopsys.com --blackduck.api.token=${{secrets.BLACKDUCK_TOKEN}}"
  
  
     - name: Static Analysis with Polaris
@@ -42,14 +42,15 @@ jobs:
  
     - name: Synopsys Intelligent Security Scan
       if: ${{steps.prescription.outputs.sastScan == 'true' || steps.prescription.outputs.scaScan == 'true'}}
-      uses: synopsys-sig/intelligent-security-scan@master
+      uses: synopsys-sig/intelligent-security-scan@2021.6.0
       with:
+        stage: "WORKFLOW"
         ioServerURL: ${{secrets.IO_SERVER_URL}}
         ioServerToken: ${{secrets.IO_SERVER_TOKEN}}
         workflowServerUrl: ${{secrets.WORKFLOW_SERVER_URL}}
-        additionalWorkflowArgs: "--polaris.url=${{secrets.POLARIS_SERVER_URL}} --IS_SAST_ENABLED=${{steps.prescription.outputs.sastScan}} --IS_SCA_ENABLED=${{steps.prescription.outputs.scaScan}} --github.token=${{secrets.GH_ATOKEN}} --polaris.project.name=sig-chakrava/insecure-bank --polaris.token=${{secrets.POLARIS_ACCESS_TOKEN}} --jira.auth.token=${{secrets.JIRA_TOKEN}} --sensitive.package.pattern='.*(.xml)' --jira.project.name=DEV --jira.api.url=https://dev-io.atlassian.net/rest/api/latest --jira.username=chakra.mithun@gmail.com --jira.issues.query=project=DEV --blackduck.project.name=insecure-bank --blackduck.url=https://io-blackduck.dev.polaris.synopsys.com --blackduck.api.token=${{secrets.BLACKDUCK_TOKEN}}"
+        additionalWorkflowArgs: "--polaris.url=${{secrets.POLARIS_SERVER_URL}} --IS_SAST_ENABLED=${{steps.prescription.outputs.sastScan}} --IS_SCA_ENABLED=${{steps.prescription.outputs.scaScan}} --github.token=${{secrets.GH_ATOKEN}} --polaris.project.name=sig-suhaslr/vulnerable-web-app --polaris.token=${{secrets.POLARIS_ACCESS_TOKEN}} --jira.auth.token=${{secrets.JIRA_TOKEN}} --sensitive.package.pattern='.*(.xml)' --jira.project.name=IO-dev --jira.api.url=https://io-jira.dev.polaris.synopsys.com/rest/api/latest --jira.username=suhaslr@synopsys.com --jira.issues.query=project=IOD --blackduck.project.name=vulnerable-web-app --blackduck.url=https://io-blackduck.dev.polaris.synopsys.com --blackduck.api.token=${{secrets.BLACKDUCK_TOKEN}}"
  
-        stage: "WORKFLOW"
+        
  
     - name: Upload SARIF file
       if: ${{steps.prescription.outputs.sastScan == 'true' }}
