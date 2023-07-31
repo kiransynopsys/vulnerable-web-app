@@ -17,7 +17,7 @@ jobs:
       run: pwd
     
     - name: Print Bridge version
-      run: ./Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge -v
+      run: /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge -v
       
     - name: Execute Bridge
-      run: ./Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_ip.json --stage scm --out sigint930_op.json
+      run: /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_ip.json --stage scm --out sigint930_op.json
