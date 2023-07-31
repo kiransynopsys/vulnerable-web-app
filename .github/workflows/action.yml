@@ -13,5 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
      
-    - name: Execute Bridge
+    - name: Get current working directory
       run: pwd
+    
+    - name: Print Bridge version
+      run: ./Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge -v
+      
+    - name: Execute Bridge
+      run: ./Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge 
+--input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_ip.json --stage scm --out sigint930_op.json
