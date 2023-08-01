@@ -28,6 +28,7 @@ jobs:
         echo GITHUB_BASE_REF-$GITHUB_BASE_REF
         echo GITHUB_REF-$GITHUB_REF
         echo GITHUB_EVENT_NAME-$GITHUB_EVENT_NAME
+        echo GITHUB_REF_NAME-$GITHUB_REF_NAME
         
     - name: Execute Bridge
       run: /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_ip.json --stage scm --debug --out /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_op.json
