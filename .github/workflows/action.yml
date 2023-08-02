@@ -2,7 +2,7 @@ name: Test SCM Discovery
  
 on:
   push:
-    branches: [ master ]
+    branches: [ master, all ]
   pull_request:
     branches: [ master ]
  
