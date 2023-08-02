@@ -31,4 +31,4 @@ jobs:
         echo GITHUB_REF_NAME-$GITHUB_REF_NAME
         
     - name: Execute Bridge
-      run: /Users/suhaslr/Downloads/synopsys-bridge-0.4.27-macosx/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/input_polaris.json --stage scm --debug --out /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_op.json
+      run: /Users/suhaslr/Downloads/synopsys-bridge-0.4.27-macosx/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/input_polaris.json --stage polaris --debug --out /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_op.json
