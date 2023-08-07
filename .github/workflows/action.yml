@@ -24,9 +24,9 @@ jobs:
         echo GITHUB_API_URL-$GITHUB_API_URL
         echo GITHUB_REPOSITORY - The owner and repository name
         echo GITHUB_REPOSITORY-$GITHUB_REPOSITORY
-        echo GITHUB_REPOSITORY_OWNER- The repository owner's name.
+        echo GITHUB_REPOSITORY_OWNER- The repository owner name.
         echo GITHUB_REPOSITORY_OWNER-$GITHUB_REPOSITORY_OWNER
-        echo GITHUB_HEAD_REF - source branch during the pull request w/f
+        echo GITHUB_HEAD_REF - source branch during the pull request workflow
         echo GITHUB_HEAD_REF-$GITHUB_HEAD_REF
         echo GITHUB_REF_NAME - branch name during the push event
         echo GITHUB_REF_NAME-$GITHUB_REF_NAME
