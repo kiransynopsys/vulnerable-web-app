@@ -22,13 +22,21 @@ jobs:
     - name: Print required Github environment variable values
       run: | 
         echo GITHUB_API_URL-$GITHUB_API_URL
+        echo GITHUB_REPOSITORY - The owner and repository name
         echo GITHUB_REPOSITORY-$GITHUB_REPOSITORY
+        echo GITHUB_REPOSITORY_OWNER- The repository owner's name.
         echo GITHUB_REPOSITORY_OWNER-$GITHUB_REPOSITORY_OWNER
+        echo GITHUB_HEAD_REF - source branch during the pull request w/f
         echo GITHUB_HEAD_REF-$GITHUB_HEAD_REF
-        echo GITHUB_BASE_REF-$GITHUB_BASE_REF
-        echo GITHUB_REF-$GITHUB_REF
-        echo GITHUB_EVENT_NAME-$GITHUB_EVENT_NAME
+        echo GITHUB_REF_NAME - branch name during the push event
         echo GITHUB_REF_NAME-$GITHUB_REF_NAME
+        echo GITHUB_BASE_REF- The name of the base ref or target branch of the pull request in a workflow run.
+        echo GITHUB_BASE_REF-$GITHUB_BASE_REF
+        echo GITHUB_REF- PR refs/pull/<pr_number>/merge, push refs/heads/<branch_name>
+        echo GITHUB_REF-$GITHUB_REF
+        echo GITHUB_EVENT_NAME - the current event name
+        echo GITHUB_EVENT_NAME-$GITHUB_EVENT_NAME
+        
         
     - name: Execute Bridge
       run: /Users/suhaslr/Downloads/synopsys-bridge-0.4.27-macosx/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/input_polaris.json --stage polaris --debug --out /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_op.json
