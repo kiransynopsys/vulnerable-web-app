@@ -32,7 +32,7 @@ jobs:
         echo GITHUB_REF_NAME-$GITHUB_REF_NAME
         echo GITHUB_BASE_REF- The name of the base ref or target branch of the pull request in a workflow run.
         echo GITHUB_BASE_REF-$GITHUB_BASE_REF
-        echo GITHUB_REF- PR refs/pull/<pr_number>/merge, push refs/heads/<branch_name>
+        echo "GITHUB_REF- PR refs/pull/<pr_number>/merge, push refs/heads/<branch_name>"
         echo GITHUB_REF-$GITHUB_REF
         echo GITHUB_EVENT_NAME - the current event name
         echo GITHUB_EVENT_NAME-$GITHUB_EVENT_NAME
