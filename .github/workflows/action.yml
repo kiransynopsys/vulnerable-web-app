@@ -1,10 +1,6 @@
 name: Test SCM Discovery
  
-on:
-  push:
-    branches: [ master, all ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
  
 jobs:
  
