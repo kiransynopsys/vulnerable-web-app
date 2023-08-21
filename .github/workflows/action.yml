@@ -1,4 +1,4 @@
-name: Test SCM Discovery
+name: Test github pr handler
  
 on: [push, pull_request]
  
@@ -13,7 +13,7 @@ jobs:
       run: pwd
     
     - name: Print Bridge version
-      run: /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge -v
+      run: /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge-1.0.16-macosx/synopsys-bridge -v
       
     - name: Print required Github environment variable values
       run: | 
@@ -35,4 +35,4 @@ jobs:
         
         
     - name: Execute Bridge
-      run: /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge-0.4.27-macosx/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/input_polaris.json --stage polaris --debug --out /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint930_op.json
+      run: /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/synopsys-bridge-1.0.16-macosx/synopsys-bridge --input /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/input_githubfixpr.json --stage GitHubFixPR --debug --out /Users/suhaslr/Documents/work/test_projects/nodejs-goof-main/sigint877_op.json
